@@ -1,14 +1,9 @@
-@font-face {
-    font-family: "Lato";
-    src: url("fonts/Lato/Lato-Regular.ttf");
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-align: center;
-    font-family: "Lato";
+    font-family: 'Lato', sans-serif;
 }
 .container {
     background: linear-gradient(
@@ -38,4 +33,13 @@ section article img {
     flex-direction: column;
     justify-content: center;
     align-content: center;
+}
+.player-name-1, .player-name-2 {
+    font-size: 40px;
+    text-transform: uppercase;
+  }
+#global-p1, #global-p2 {
+    font-size: 80px;
+    font-weight: lighter;
+    margin-bottom: 50px;
 }
