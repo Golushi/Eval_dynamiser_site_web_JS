@@ -28,18 +28,22 @@ section article img {
     align-content: center;
     justify-content: space-around;
 }
-#player-one, #player-two {
+#player-one, #player-two, #button-b {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
 }
 .player-name-1, .player-name-2 {
-    font-size: 40px;
+    font-size: 30px;
     text-transform: uppercase;
   }
 #global-p1, #global-p2 {
-    font-size: 80px;
-    font-weight: lighter;
+    font-size: 70px;
     margin-bottom: 50px;
+}
+.current {
+    margin-top: 80px;
+    align-self: center;
+    
 }
