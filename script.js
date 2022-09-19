@@ -1,4 +1,4 @@
-// BRUITAGE Dés 
+// BRUITAGE 
 
 function play() {
     var audio = document.getElementById("audio");
