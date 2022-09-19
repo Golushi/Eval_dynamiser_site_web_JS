@@ -2,7 +2,7 @@
 
 function play() {
     var audio = document.getElementById("audio");
-    audio.playbackRate = 2.5;
+    audio.playbackRate = 1.7;
     audio.play();
   }
   
