@@ -16,35 +16,58 @@
         <link rel="stylesheet" href="style.css">
     <title>First To 100</title>
 </head>
-<body class="container vw-100">
+<body class="container mt-5">
     <section class="row">
-        
-        <article id="player-one" class="col vh-100">
-            <p>PLAYER 1</p>
-            <div id="current" class="bg-danger">
+    
+        <!--PLAYER ONE-->
+        <article id="player-one" class="col">
+            <div class="d-inline-flex">
+                <p>PLAYER 1</p>
+                <div class="spinner-grow spinner-grow-sm text-danger ms-3" role="status">
+                    <div class="visually-hidden">Loading...</div>
+                </div>
+            </div>
+            <p id="global-p1" class="text-danger">0</p>
+            <div class="current bg-danger">
                 <p>CURRENT</p>
-                <p class="text-white">0</p>
+                <p id="round-p1" class="text-white">0</p>
             </div>
         </article>
 
-        <article id="middle-screen" class="col vh-100">
-            <button id="new-game" title="Nouveau jeu">NEW GAME</button>
-            <button id="roll-dice" 
-                class="" title="Relance les dés" 
+        <!--MIDDLE-->
+        <article id="middle-screen" class="col">
+            <div>
+                <button id="new-game" class="border-0 bg-transparent" title="Nouveau jeu">
+                    <i class="bi bi-plus-circle text-danger"></i> NEW GAME</button>  
+            </div>
+            <div id="img">
+                <img id="img-1" src="images/dice-1.png">
+            </div>
+            <div>
+                <button id="roll-dice" 
+                class="border-0 bg-transparent pb-3" 
+                title="Relance les dés" 
                 value="PLAY" 
                 onclick="play()">
-                ROLL DICE
-            </button>
-            <audio id="audio" src="sons/bruit_des.mp3"></audio>
-            <button id="hold" class="" title="Garde ton score">HOLD</button>
-
+                <i class="bi bi-arrow-repeat text-danger"></i> ROLL DICE</button>
+                <audio id="audio" src="sons/bruit_des.mp3"></audio>
+                <button id="hold" class="border-0 bg-transparent" title="Garde ton score">
+                    <i class="bi bi-box-arrow-in-down text-danger"></i> HOLD</button>
+            </div>
         </article>
 
-        <article id="player-two" class="col vh-100">
-            <p>PLAYER 2</p>
-            <div id="current" class="bg-danger">
+        <!--PLAYER TWO-->
+        <article id="player-two" class="col">
+            <div class="d-inline-flex">
+                <p>PLAYER 2</p>
+                <div class="spinner-grow spinner-grow-sm text-danger ms-3" role="status">
+                    <div class="visually-hidden">Loading...</div>
+                </div>
+            </div>
+            <p id="global-p2" class="text-danger">0</p>
+            <div class="current bg-danger">
                 <p>CURRENT</p>
-                <p class="text-white">0</p>
+                <p id="round-p2" class="text-white">0</p>
             </div>
         </article>
     </section> 
