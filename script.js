@@ -14,6 +14,7 @@ const scores = [0,0];
 let currentScore = 0;
 let activePlayer = 0;
 
+
 // CHANGE PLAYER
 const changePlayer = function() {
   document.getElementById(`round-p${activePlayer}`).textContent = 0;
@@ -36,7 +37,7 @@ function spinAndBgChange() {
   }
 }
 
-//**********ROLL DICE
+//**********ROLL DICE*********
 
 document.querySelector("#roll-dice").addEventListener("click", roll);
 
@@ -46,7 +47,6 @@ function randomNumber() {
 }
 function roll() {
   const randomDice = randomNumber();
-  console.log(randomDice);
   // CHANGE IMG DICE
   let imgDice = document.querySelector("#img-1");
   imgDice.src = "images/dice-" + randomDice + ".png";
@@ -61,24 +61,36 @@ function roll() {
   }
 }
 
-//********* HOLD
+//*********HOLD**********
 
 hold.addEventListener("click", function(){
   scores[activePlayer] += currentScore;
   document.getElementById(`global-p${activePlayer}`).textContent = scores[activePlayer];
-  // CHANGE PLAYER
+  // CHECK VICTORY
+  if(scores[activePlayer] >= 20){
+    playVictory();
+    var player = `Player ${activePlayer + 1}`;
+    setTimeout(function() { alert(`YOU WIN !!!!!!!! Le ${player} à gagné`); }, 1000);
+  }else{
+    // CHANGE PLAYER
   changePlayer();
+  }
 })
 
-//******BRUITAGE 
+//******BRUITAGE***********
 
 function playRoll() {
   var audio = document.getElementById("audio-roll");
-  audio.playbackRate = 1.9;
+  audio.playbackRate = 3;
   audio.play();
 }
 function playHold() {
   var audio = document.getElementById("audio-hold");
-  audio.playbackRate = 1.9;
+  audio.playbackRate = 2.2;
+  audio.play();
+}
+function playVictory() {
+  var audio = new Audio("sons/you_win.mp3");
+  audio.playbackRate = 1.5;
   audio.play();
 }
