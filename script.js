@@ -13,6 +13,7 @@ const player2 = document.querySelector("#player-2");
 const scores = [0,0];
 let currentScore = 0;
 let activePlayer = 0;
+let playing = true;
 
 
 // CHANGE PLAYER
@@ -46,34 +47,40 @@ function randomNumber() {
   return Math.ceil(Math.random()*6);
 }
 function roll() {
-  const randomDice = randomNumber();
-  // CHANGE IMG DICE
-  let imgDice = document.querySelector("#img-1");
-  imgDice.src = "images/dice-" + randomDice + ".png";
-  spinAndBgChange();
+  if(playing) {
+    const randomDice = randomNumber();
+    // CHANGE IMG DICE
+    let imgDice = document.querySelector("#img-1");
+    imgDice.src = "images/dice-" + randomDice + ".png";
+    spinAndBgChange();
 
-  if(randomDice !== 1){
-    // ADD CURRENT SCORE
-    currentScore += randomDice;
-    document.getElementById(`round-p${activePlayer}`).textContent = currentScore;
-  }else {
-    changePlayer();
+    if(randomDice !== 1){
+      // ADD CURRENT SCORE
+      currentScore += randomDice;
+      document.getElementById(`round-p${activePlayer}`).textContent = currentScore;
+    }else {
+      changePlayer();
+    }
   }
 }
+
 
 //*********HOLD**********
 
 hold.addEventListener("click", function(){
-  scores[activePlayer] += currentScore;
-  document.getElementById(`global-p${activePlayer}`).textContent = scores[activePlayer];
-  // CHECK VICTORY
-  if(scores[activePlayer] >= 20){
-    playVictory();
-    var player = `Player ${activePlayer + 1}`;
-    setTimeout(function() { alert(`YOU WIN !!!!!!!! Le ${player} à gagné`); }, 1000);
-  }else{
-    // CHANGE PLAYER
-  changePlayer();
+  if(playing) {
+    scores[activePlayer] += currentScore;
+    document.getElementById(`global-p${activePlayer}`).textContent = scores[activePlayer];
+    // CHECK VICTORY
+    if(scores[activePlayer] >= 20){
+      playing = false;
+      playVictory();
+      var player = `Player ${activePlayer + 1}`;
+      setTimeout(function() { alert(`YOU WIN !!!!!!!! Le ${player} à gagné`); }, 1000);
+    }else{
+      // CHANGE PLAYER
+    changePlayer();
+    }
   }
 })
 
