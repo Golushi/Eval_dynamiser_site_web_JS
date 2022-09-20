@@ -6,17 +6,18 @@
     font-family: 'Lato', sans-serif;
 }
 .container {
-    background: linear-gradient(
-      to right,
-      rgb(254, 240, 240) 0%,
-      rgb(254, 240, 240) 50%,
-      white 50%,
-      white 100%
-    );
+    background-color: black;
 }
 section {
     height: 500px;
     border-radius: 3px;
+    background: linear-gradient(
+      to right,
+      rgb(255, 218, 218) 0%,
+      rgb(255, 218, 218) 50%,
+      white 50%,
+      white 100%
+    );
 }
 section article img {
     height: 100px;
@@ -50,6 +51,9 @@ section article img {
     position: relative;
     top: -40px;
 }
+
+
+
 /*MEDIAS QUERIES*/
 @media screen and (max-width:400px) {
     section article img {
