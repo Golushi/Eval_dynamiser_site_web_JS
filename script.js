@@ -115,7 +115,7 @@ hold.addEventListener("click", function(){
     scores[activePlayer] += currentScore;
     document.getElementById(`global-p${activePlayer}`).textContent = scores[activePlayer];
     // ************CHECK VICTORY***********
-    if(scores[activePlayer] >= 10){
+    if(scores[activePlayer] >= 100){
       playing = false;
       imgDice.style.visibility = "hidden";
       buttonB.style.visibility = "hidden";
