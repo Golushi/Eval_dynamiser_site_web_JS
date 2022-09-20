@@ -72,6 +72,7 @@ hold.addEventListener("click", function(){
     if(scores[activePlayer] >= 10){
       playing = false;
       imgDice.style.visibility = "hidden";
+      newGame.style.top = "120px";
       playVictory();
       var player = `Player ${activePlayer + 1}`;
       setTimeout(function() { alert(`YOU WIN !!!!!!!! Le ${player} à gagné`); }, 1000);
@@ -93,6 +94,7 @@ newGame.addEventListener("click", () => {
   playing = true;
   activePlayer = 0;
   spinAndBgChange();
+  newGame.style.top = "-20px";
 
 })
 
