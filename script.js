@@ -14,6 +14,29 @@ const buttonB = document.querySelector("#button-b");
 let imgDice = document.querySelector("#img-1");
 let currentScore, activePlayer, scores, playing;
 
+//***********choose Pseudo**********
+
+let p1 = document.querySelector(".player-name-1");
+let p2 = document.querySelector(".player-name-2");
+
+function pseudo1() {
+  if (p1.innerHTML.length <= 0) {
+      p1.innerHTML = "PLAYER 1";
+  } else if (p1.innerHTML.length > 8) {
+      alert('Please to enter a name with 8 caracters maximum.');
+      p1.innerHTML = prompt('Choose a name for PLAYER 1:');
+      return pseudo1();
+  }
+}
+function pseudo2() {
+  if (p2.innerHTML.length <= 0) {
+      p2.innerHTML = "PLAYER 2";
+  } else if (p2.innerHTML.length > 8) {
+      alert('Please to enter a name with 8 caracters maximum.');
+      p2.innerHTML = prompt('Choose a name for PLAYER 2:');
+      return pseudo2();
+  }
+}
 
 //*********INITIALISATION****************
 
@@ -30,6 +53,11 @@ const init = () => {
   playing = true;
   spinAndBgChange();
   newGame.style.top = "-20px";
+  p1.innerHTML = prompt('Choose a name for PLAYER 1:');
+  pseudo1();
+  p2.innerHTML = prompt('Choose a name for PLAYER 2:');
+  pseudo2();
+  
 }
 
 init() ;
@@ -86,16 +114,20 @@ hold.addEventListener("click", function(){
   if(playing) {
     scores[activePlayer] += currentScore;
     document.getElementById(`global-p${activePlayer}`).textContent = scores[activePlayer];
-    // CHECK VICTORY
-    if(scores[activePlayer] >= 100){
+    // ************CHECK VICTORY***********
+    if(scores[activePlayer] >= 10){
       playing = false;
       imgDice.style.visibility = "hidden";
       buttonB.style.visibility = "hidden";
       newGame.style.top = "120px";
       playVictory();
-      var player = `Player ${activePlayer + 1}`;
-      setTimeout(function() { alert(`YOU WIN !!!!!!!! Le ${player} à gagné`); }, 1000);
-    }else{
+      // MESSAGE WIN PLAYER
+      if (activePlayer == 0) {
+        setTimeout(function() { alert(`YOU WIN !!!!!!!!  ${p1.innerHTML} a gagné !`); }, 1000);
+      }else {
+        setTimeout(function() { alert(`YOU WIN !!!!!!!!  ${p2.innerHTML} a gagné !`); }, 1000);
+      }
+    }else {
       // CHANGE PLAYER
     changePlayer();
     }
@@ -104,7 +136,7 @@ hold.addEventListener("click", function(){
 
 //************NEW GAME**********
 
-newGame.addEventListener("click", init)
+newGame.addEventListener("click", init);
 
 //******BRUITAGE***********
 

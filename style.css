@@ -53,6 +53,12 @@ section article img {
     bottom: 30px;
     visibility: visible;
 }
+article button {
+    transition-duration: 0.1s;
+}
+article button:hover {
+    font-size: 1.2em;
+}
 #img-1 {
     visibility: visible;
 }
