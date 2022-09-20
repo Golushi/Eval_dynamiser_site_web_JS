@@ -1,20 +1,20 @@
 // VARIABLES AND CONDITIONS
-const scoreP1 = document.querySelector("#global-p1");
-const scoreP2 = document.querySelector("#global-p2");
+const scoreP1 = document.querySelector("#global-p0");
+const scoreP2 = document.querySelector("#global-p1");
 const spinner1 = document.querySelector("#spin1");
 const spinner2 = document.querySelector("#spin2");
 const bgSwitch = document.querySelector("#bg");
-const currentP1 = document.getElementById("round-p1");
-const currentP2 = document.getElementById("round-p2");
+const currentP1 = document.getElementById("round-p0");
+const currentP2 = document.getElementById("round-p1");
 const hold = document.querySelector("#hold");
 const newGame = document.querySelector("#new-game");
 const player1 = document.querySelector("#player-1");
 const player2 = document.querySelector("#player-2");
-const scores = [0,0];
+const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 let playing = true;
-
+let imgDice = document.querySelector("#img-1");
 
 // CHANGE PLAYER
 const changePlayer = function() {
@@ -50,10 +50,8 @@ function roll() {
   if(playing) {
     const randomDice = randomNumber();
     // CHANGE IMG DICE
-    let imgDice = document.querySelector("#img-1");
     imgDice.src = "images/dice-" + randomDice + ".png";
     spinAndBgChange();
-
     if(randomDice !== 1){
       // ADD CURRENT SCORE
       currentScore += randomDice;
@@ -64,7 +62,6 @@ function roll() {
   }
 }
 
-
 //*********HOLD**********
 
 hold.addEventListener("click", function(){
@@ -72,8 +69,9 @@ hold.addEventListener("click", function(){
     scores[activePlayer] += currentScore;
     document.getElementById(`global-p${activePlayer}`).textContent = scores[activePlayer];
     // CHECK VICTORY
-    if(scores[activePlayer] >= 20){
+    if(scores[activePlayer] >= 10){
       playing = false;
+      imgDice.style.visibility = "hidden";
       playVictory();
       var player = `Player ${activePlayer + 1}`;
       setTimeout(function() { alert(`YOU WIN !!!!!!!! Le ${player} à gagné`); }, 1000);
@@ -84,16 +82,30 @@ hold.addEventListener("click", function(){
   }
 })
 
+//*********NEW GAME****************
+
+newGame.addEventListener("click", () => {
+  imgDice.style.visibility = "visible";
+  scoreP1.textContent = 0;
+  scoreP2.textContent = 0;
+  currentP1.textContent = 0;
+  currentP2.textContent = 0;
+  playing = true;
+  activePlayer = 0;
+  spinAndBgChange();
+
+})
+
 //******BRUITAGE***********
 
 function playRoll() {
   var audio = document.getElementById("audio-roll");
-  audio.playbackRate = 3;
+  audio.playbackRate = 8;
   audio.play();
 }
 function playHold() {
   var audio = document.getElementById("audio-hold");
-  audio.playbackRate = 2.2;
+  audio.playbackRate = 4;
   audio.play();
 }
 function playVictory() {

@@ -48,6 +48,13 @@ section article img {
 #global-p0, #global-p1 {
     font-size: 70px;
 }
+#button-b {
+    position: relative;
+    bottom: 30px;
+}
+#img-1 {
+    visibility: visible;
+}
 .current {
     margin-top: 120px;
     align-self: center;
