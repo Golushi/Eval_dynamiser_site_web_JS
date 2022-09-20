@@ -8,9 +8,9 @@
 .container {
     background-color: black;
 }
-section {
+#bg {
     height: 500px;
-    border-radius: 3px;
+    border-radius: 5px;
     background: linear-gradient(
       to right,
       rgb(255, 218, 218) 0%,
@@ -20,8 +20,8 @@ section {
     );
 }
 section article img {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
 }
 #middle-screen {
     display: flex;
@@ -29,7 +29,7 @@ section article img {
     align-content: center;
     justify-content: space-around;
 }
-#player-one, #player-two, #button-b {
+#player-1, #player-2, #button-b {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,19 +46,26 @@ section article img {
 .current {
     margin-top: 120px;
     align-self: center;
+    font-size: 1.2rem;
 }
 #new-game {
     position: relative;
     top: -40px;
 }
+#spin1 {
+    visibility: visible;
+}
+#spin2 {
+    visibility: hidden;
+}
 
 
 
 /*MEDIAS QUERIES*/
-@media screen and (max-width:400px) {
+@media screen and (max-width:515px) {
     section article img {
-        height: 75px;
-        width: 75px;
+        height: 90px;
+        width: 90px;
     }
     .player-name-1, .player-name-2 {
         font-size: 20px;
