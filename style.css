@@ -93,3 +93,14 @@ section article img {
         margin-top: 200px;
     }
 }
+
+@media screen and (min-width:950px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    section {
+        width: 720px;
+        align-self: center;
+    }
+}
