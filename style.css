@@ -51,6 +51,7 @@ section article img {
 #button-b {
     position: relative;
     bottom: 30px;
+    visibility: visible;
 }
 #img-1 {
     visibility: visible;

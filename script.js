@@ -10,13 +10,32 @@ const hold = document.querySelector("#hold");
 const newGame = document.querySelector("#new-game");
 const player1 = document.querySelector("#player-1");
 const player2 = document.querySelector("#player-2");
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+const buttonB = document.querySelector("#button-b");
 let imgDice = document.querySelector("#img-1");
+let currentScore, activePlayer, scores, playing;
 
-// CHANGE PLAYER
+
+//*********INITIALISATION****************
+
+const init = () => {
+  imgDice.style.visibility = "visible";
+  buttonB.style.visibility = "visible";
+  scoreP1.textContent = 0;
+  scoreP2.textContent = 0;
+  currentP1.textContent = 0;
+  currentP2.textContent = 0;
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+  spinAndBgChange();
+  newGame.style.top = "-20px";
+}
+
+init() ;
+
+//**************CHANGE PLAYER************
+
 const changePlayer = function() {
   document.getElementById(`round-p${activePlayer}`).textContent = 0;
     activePlayer = activePlayer === 0 ? 1:0;
@@ -34,7 +53,6 @@ function spinAndBgChange() {
     spinner1.style.visibility = "hidden";
     spinner2.style.visibility = "visible";
     bgSwitch.style.background = "linear-gradient(to left,rgb(255, 218, 218) 0%,rgb(255, 218, 218) 50%,white 50%,white 100%)";
-
   }
 }
 
@@ -72,6 +90,7 @@ hold.addEventListener("click", function(){
     if(scores[activePlayer] >= 10){
       playing = false;
       imgDice.style.visibility = "hidden";
+      buttonB.style.visibility = "hidden";
       newGame.style.top = "120px";
       playVictory();
       var player = `Player ${activePlayer + 1}`;
@@ -83,20 +102,9 @@ hold.addEventListener("click", function(){
   }
 })
 
-//*********NEW GAME****************
+//************NEW GAME**********
 
-newGame.addEventListener("click", () => {
-  imgDice.style.visibility = "visible";
-  scoreP1.textContent = 0;
-  scoreP2.textContent = 0;
-  currentP1.textContent = 0;
-  currentP2.textContent = 0;
-  playing = true;
-  activePlayer = 0;
-  spinAndBgChange();
-  newGame.style.top = "-20px";
-
-})
+newGame.addEventListener("click", init)
 
 //******BRUITAGE***********
 
