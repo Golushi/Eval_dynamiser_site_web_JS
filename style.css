@@ -39,7 +39,7 @@ section article img {
     font-size: 30px;
     text-transform: uppercase;
   }
-#global-p1, #global-p2 {
+#global-p0, #global-p1 {
     font-size: 70px;
     margin-bottom: 50px;
 }
@@ -70,7 +70,7 @@ section article img {
     .player-name-1, .player-name-2 {
         font-size: 20px;
     }
-    #global-p1, #global-p2 {
+    #global-p0, #global-p1 {
         font-size: 45px;
     }
     * {
