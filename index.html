@@ -22,7 +22,7 @@
 <body class="container mt-5">
     <section class="row" id="bg">
     
-        <!--PLAYER ONE-->
+        <!--*********PLAYER ONE***********-->
         <article id="player-1" class="col player-active">
             <div>
                 <p class="player-name-1 d-inline">PLAYER 1</p>
@@ -37,7 +37,7 @@
             </div>
         </article>
 
-        <!--MIDDLE-->
+        <!--********MIDDLE**********-->
         <article id="middle-screen" class="col">
             <div>
                 <button id="new-game" class="border-0 bg-transparent" title="Nouveau jeu">
@@ -52,16 +52,22 @@
                 class="border-0 bg-transparent pb-3" 
                 title="Relance les dés" 
                 value="PLAY"
-                onclick="play()">
-                <i class="bi bi-arrow-repeat text-danger"></i> ROLL DICE</button>
-                <audio id="audio" src="sons/bruit_des.mp3"></audio>
-                <button id="hold" class="border-0 bg-transparent" title="Garde ton score">
+                onclick="playRoll()">
+                    <i class="bi bi-arrow-repeat text-danger"></i> ROLL DICE
+                </button>
+                <audio id="audio-roll" src="sons/bruit_des.mp3"></audio>
+                <button id="hold" 
+                class="border-0 bg-transparent" 
+                title="Garde ton score"
+                value="PLAY"
+                onclick="playHold()">
                     <i class="bi bi-box-arrow-in-down text-danger"></i> HOLD
                 </button>
+                <audio id="audio-hold" src="sons/hold.wav"></audio>
             </div>
         </article>
 
-        <!--PLAYER TWO-->
+        <!--**********PLAYER TWO*************-->
         <article id="player-2" class="col">
             <div>
                 <p class="player-name-2 d-inline">PLAYER 2</p>
@@ -76,7 +82,7 @@
             </div>
         </article>
     </section> 
-
+    <!--************SCRIPTS**************-->
     <script 
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" 

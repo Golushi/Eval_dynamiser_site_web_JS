@@ -72,11 +72,13 @@ hold.addEventListener("click", function(){
 
 //******BRUITAGE 
 
-function play() {
-  var audio = document.getElementById("audio");
+function playRoll() {
+  var audio = document.getElementById("audio-roll");
   audio.playbackRate = 1.9;
   audio.play();
 }
-
-
-  
+function playHold() {
+  var audio = document.getElementById("audio-hold");
+  audio.playbackRate = 1.9;
+  audio.play();
+}
