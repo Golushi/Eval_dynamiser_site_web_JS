@@ -57,7 +57,6 @@ const init = () => {
   pseudo1();
   p2.innerHTML = prompt('Choose a name for PLAYER 2:');
   pseudo2();
-  
 }
 
 init() ;
@@ -66,11 +65,11 @@ init() ;
 
 const changePlayer = function() {
   document.getElementById(`round-p${activePlayer}`).textContent = 0;
-    activePlayer = activePlayer === 0 ? 1:0;
-    currentScore = 0;
-    player1.classList.toggle("player-active");
-    player2.classList.toggle("player-active");
-    spinAndBgChange();
+  activePlayer = activePlayer === 0 ? 1:0;
+  currentScore = 0;
+  player1.classList.toggle("player-active");
+  player2.classList.toggle("player-active");
+  spinAndBgChange();
 }
 function spinAndBgChange() {
   if (activePlayer == 0) {
